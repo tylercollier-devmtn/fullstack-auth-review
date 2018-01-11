@@ -18,6 +18,7 @@ cors
 browserrouter vs hashrouter
 props used more
 proxy in package.json
+combineReducers
 
 routes
 client side

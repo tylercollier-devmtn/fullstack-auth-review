@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/(access_token.*)?" component={Home} />
         <Route path="/private" component={AccountInfo} />
       </div>
     );
