@@ -1,0 +1,58 @@
+Dependencies
+* express
+* body-parser
+* massive
+* express-session
+* dotenv
+* react
+* react-router-dom
+* auth0-lock
+* redux
+* react-redux
+* axios
+* redux-promise-middleware
+
+Let's talk about:
+-----------------
+cors
+browserrouter vs hashrouter
+props used more
+
+routes
+client side
+  #/ (Home)
+  #/private
+  #/login
+back-end
+  /user-data
+  /login
+  /logout
+middleware
+  check authorized
+
+components
+* Home / Login
+* AccountInfo
+* Logout
+* Button
+* List?
+
+redux
+* user (object)
+* available balance
+
+schema (database shape)
+* users
+  * id
+  * username
+  * email
+  * auth0_id
+  * picture
+  * balance
+
+stretch goals
+* deposit
+* debit
+
+
+
