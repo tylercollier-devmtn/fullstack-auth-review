@@ -33,7 +33,6 @@ middleware
 components
 * Home
 * AccountInfo
-* Logout
 * Button
 * List?
 
