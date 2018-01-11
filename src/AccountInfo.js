@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { login } from './ducks/reducer';
 
 class AccountInfo extends Component {
+  componentDidMount() {
+    axios.get('/user-data').then(response => {
+      if (response.data.user) {
+        this.props.login(response.data.user);
+      }
+    });
+  }
+
   render() {
     const { user } = this.props;
     return (
@@ -21,4 +31,8 @@ function mapStateToProps(state) {
   };
 };
 
-export default connect(mapStateToProps)(AccountInfo);
+const mapDispatchToProps = {
+  login: login,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AccountInfo);
