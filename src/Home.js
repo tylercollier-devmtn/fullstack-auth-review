@@ -18,19 +18,10 @@ class Home extends Component {
     console.log('this.lock', this.lock);
     this.lock.on('authenticated', authResult => {
       this.lock.getUserInfo(authResult.accessToken, (error, user) => {
-        console.log('user', user);
-        // axios.post('/login', { userId: user.sub }).then(response => {
-          const response = {
-            data: {
-              user: {
-                name: 'Billy bob joe bobert',
-                picture: 'xasdf'
-              }
-            }
-          }
+        axios.post('/login', { userId: user.sub }).then(response => {
           this.props.login(response.data.user);
           this.props.history.push('/private');
-        // })
+        })
       })
     })
   }
