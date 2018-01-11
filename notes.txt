@@ -17,12 +17,12 @@ Let's talk about:
 cors
 browserrouter vs hashrouter
 props used more
+proxy in package.json
 
 routes
 client side
   #/ (Home)
   #/private
-  #/login
 back-end
   /user-data
   /login
@@ -31,7 +31,7 @@ middleware
   check authorized
 
 components
-* Home / Login
+* Home
 * AccountInfo
 * Logout
 * Button
@@ -51,6 +51,7 @@ schema (database shape)
   * balance
 
 stretch goals
+* browserrouter
 * deposit
 * debit
 
