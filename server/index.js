@@ -37,6 +37,15 @@ app.post('/login', (req, res) => {
       pictureUrl: userData.picture
     };
     res.json({ user: req.session.user });
+    app.get('db').find_user(userData.user_id).then(users => {
+      if (!users.length) {
+        app.get('db').create_user([userData.user_id, userData.email, userData.picture, userData.name]).then(() => {
+          
+        }).catch(error => {
+          console.log('error', error);
+        });
+      }
+    })
   }).catch(error => {
     console.log('error', error);
     res.status(500).json({ message: 'Oh noes!' });

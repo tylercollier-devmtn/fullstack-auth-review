@@ -18,7 +18,12 @@ class AccountInfo extends Component {
     return (
       <div>
         <h1>AccountInfo</h1>
-        {user && <p>You are logged in as: <strong>{user.name}</strong></p>}
+        {user && <div>You are logged in as:
+          <div><strong>{user.name}</strong></div>
+          <div><strong>{user.email}</strong></div>
+          <div><strong>{user.auth0_id}</strong></div>
+          <img src={user.pictureUrl} />
+        </div>}
         {!user && <p>You must login! <Link to="/">Log in</Link></p>}
       </div>
     );
