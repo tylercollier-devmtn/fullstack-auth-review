@@ -30,19 +30,23 @@ app.post('/login', (req, res) => {
     }
   }).then(response => {
     const userData = response.data;
-    req.session.user = {
+    const userForDatabase = {
       name: userData.name,
       email: userData.email,
       auth0_id: userData.user_id,
       pictureUrl: userData.picture
     };
-    res.json({ user: req.session.user });
     app.get('db').find_user(userData.user_id).then(users => {
-      if (!users.length) {
+      if (users.length) {
+        req.session.user = userForDatabase;
+        res.json({ user: req.session.user });
+      } else {
         app.get('db').create_user([userData.user_id, userData.email, userData.picture, userData.name]).then(() => {
-          
+          req.session.user = userForDatabase;
+          res.json({ user: req.session.user });
         }).catch(error => {
           console.log('error', error);
+          res.status(500).json({ message: 'Server 500' });
         });
       }
     })
